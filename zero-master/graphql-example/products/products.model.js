@@ -13,6 +13,18 @@ const products = [
 
 const getAllProducts = () => products;
 
+const getProduct = (id) => {
+  return products.find((product) => product.id === id);
+};
+
+const getProductsByPrice = (min, max) => {
+  return products.filter(
+    (product) => product.price >= min && product.price <= max
+  );
+};
+
 module.exports = {
   getAllProducts,
+  getProduct,
+  getProductsByPrice,
 };
