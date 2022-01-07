@@ -9,22 +9,17 @@ const app = express();
 const PORT = 3000;
 
 const typesArray = loadFilesSync(path.join(__dirname, "**/*.graphql"));
+const resovlersArray = loadFilesSync(path.join(__dirname, "**/*.resolvers.js"));
 
 const schema = makeExecutableSchema({
   typeDefs: typesArray,
+  resolvers: resovlersArray,
 });
-
-const root = {
-  products: require("./products/products.model"),
-
-  orders: require("./orders/orders.model"),
-};
 
 app.use(
   "/graphql",
   graphqlHTTP({
     schema,
-    rootValue: root,
     graphiql: true,
   })
 );
