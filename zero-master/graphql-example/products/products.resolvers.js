@@ -14,4 +14,17 @@ module.exports = {
       return productsModel.getProduct(id);
     },
   },
+  Mutation: {
+    addNewProduct: (_, args) => {
+      const { id, price, description } = args;
+
+      return productsModel.addNewProduct(id, price, description);
+    },
+
+    addNewReview: (_, args) => {
+      const { id, rating, comment } = args;
+
+      return productsModel.addNewReview(id, rating, comment);
+    },
+  },
 };
