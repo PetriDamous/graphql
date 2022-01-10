@@ -6,4 +6,9 @@ module.exports = {
       return ordersModel.getAllOrders();
     },
   },
+  Mutation: {
+    addNewOrder: (_, args) => {
+      return ordersModel.addNewOrder(args);
+    },
+  },
 };

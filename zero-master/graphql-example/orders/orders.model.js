@@ -17,6 +17,15 @@ const orders = [
 
 const getAllOrders = () => orders;
 
+const addNewOrder = (args) => {
+  const newOrder = { ...args };
+
+  orders.push(newOrder);
+
+  return newOrder;
+};
+
 module.exports = {
   getAllOrders,
+  addNewOrder,
 };

@@ -2,6 +2,10 @@ type Query {
   orders: [Order]
 }
 
+type Mutation {
+  addNewOrder(date: String!, subtotal: Float!): Order
+}
+
 type Order {
   date: String!
   subtotal: Float!
