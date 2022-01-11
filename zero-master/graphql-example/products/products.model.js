@@ -1,62 +1,47 @@
-const products = [
-  {
-    id: "xbox360",
-    price: 350,
-    description: "Red ring of death",
-    reviews: [],
-  },
-  {
-    id: "ps5",
-    price: 500,
-    description: "Pure crap",
-    reviews: [],
-  },
-];
+class Products {
+  constructor() {
+    this.productsData = require("./products.data");
+  }
 
-const getAllProducts = () => products;
+  getAllProducts = () => this.productsData;
 
-const getProduct = (id) => {
-  return products.find((product) => product.id === id);
-};
-
-const getProductsByPrice = (min, max) => {
-  return products.filter(
-    (product) => product.price >= min && product.price <= max
-  );
-};
-
-const addNewProduct = (id, price, description) => {
-  const newProduct = {
-    id,
-    price,
-    description,
-    reviews: [],
+  getProduct = (id) => {
+    return this.productsData.find((product) => product.id === id);
   };
 
-  products.push(newProduct);
+  getProductsByPrice = (min, max) => {
+    return this.productsData.filter(
+      (product) => product.price >= min && product.price <= max
+    );
+  };
 
-  return newProduct;
-};
-
-const addNewReview = (id, rating, comment) => {
-  const product = getProduct(id);
-
-  if (product) {
-    const newReview = {
-      rating,
-      comment,
+  addNewProduct = (id, price, description) => {
+    const newProduct = {
+      id,
+      price,
+      description,
+      reviews: [],
     };
 
-    product.reviews.push(newReview);
+    this.productsData.push(newProduct);
 
-    return newReview;
-  }
-};
+    return newProduct;
+  };
 
-module.exports = {
-  getAllProducts,
-  getProduct,
-  getProductsByPrice,
-  addNewProduct,
-  addNewReview,
-};
+  addNewReview = (id, rating, comment) => {
+    const product = this.productsData.getProduct(id);
+
+    if (product) {
+      const newReview = {
+        rating,
+        comment,
+      };
+
+      product.reviews.push(newReview);
+
+      return newReview;
+    }
+  };
+}
+
+module.exports = new Products();
