@@ -10,6 +10,9 @@ type Mutation {
   addNewReview(id: ID!, rating: Float!, comment: String): Review
 }
 
+"""
+Type defining a product
+"""
 type Product {
   id: ID!
   price: Float!
@@ -17,6 +20,9 @@ type Product {
   reviews: [Review]
 }
 
+"""
+Type defining a review
+"""
 type Review {
   rating: Float!
   comment: String
