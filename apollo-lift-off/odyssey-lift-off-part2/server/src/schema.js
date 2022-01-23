@@ -1,6 +1,6 @@
-const { gql } = require('apollo-server');
+const { gql } = require("apollo-server");
 
-const typeDefs = gql`
+module.exports = gql`
   type Query {
     "Query to get tracks array for the homepage grid"
     tracksForHome: [Track!]!
@@ -30,5 +30,3 @@ const typeDefs = gql`
     photo: String
   }
 `;
-
-module.exports = typeDefs;
