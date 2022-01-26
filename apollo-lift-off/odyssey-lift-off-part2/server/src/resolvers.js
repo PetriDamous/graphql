@@ -3,14 +3,16 @@ module.exports = {
     tracksForHome: (_, __, { dataSources: { trackAPI } }) => {
       return trackAPI.getTracksForHome();
     },
-    track: (_, args, { dataSources: { trackAPI } }) => {
-      const { id } = args;
+    track: (_, { id }, { dataSources: { trackAPI } }) => {
       return trackAPI.getTrack(id);
     },
   },
   Track: {
-    author: ({ authorId }, __, { dataSources: { trackAPI } }) => {
+    author: ({ authorId }, _, { dataSources: { trackAPI } }) => {
       return trackAPI.getAuthor(authorId);
+    },
+    modules: ({ id }, _, { dataSources: { trackAPI } }) => {
+      return trackAPI.getModulesForTrack(id);
     },
   },
 };

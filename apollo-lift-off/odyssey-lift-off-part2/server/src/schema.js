@@ -29,6 +29,7 @@ module.exports = gql`
     modules: [Module!]!
   }
 
+  "Module for a track"
   type Module {
     id: ID!
     "Title of module"
