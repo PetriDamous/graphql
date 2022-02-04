@@ -9,7 +9,7 @@ module.exports = gql`
   }
 
   type Mutation {
-    incrementTrackViews(trackId: ID!): IncrementTrackViewsResponse!
+    incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
   }
 
   type IncrementTrackViewsResponse {
