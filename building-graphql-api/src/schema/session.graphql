@@ -12,6 +12,6 @@ type Session {
   room: String
   day: String
   format: String
-  track: String
+  track: String @deprecated(reason: "Moving to a better model.")
   level: String
 }
