@@ -1,1 +1,4 @@
-module.exports = [require("./sessions.resolvers")];
+module.exports = [
+  require("./sessions.resolvers"),
+  require("./speakers.resolver"),
+];
