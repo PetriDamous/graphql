@@ -3,6 +3,7 @@ const express = require("express");
 const { loadFilesSync } = require("@graphql-tools/load-files");
 const { makeExecutableSchema } = require("@graphql-tools/schema");
 const { ApolloServer } = require("apollo-server-express");
+const dataAPIs = require("./model");
 
 const typesArray = loadFilesSync(path.join(__dirname, "**/*.graphql"));
 
@@ -20,13 +21,16 @@ const startApolloServer = async () => {
 
   const server = new ApolloServer({
     schema,
+    dataSources: () => ({
+      ...dataAPIs,
+    }),
   });
 
   await server.start();
 
   server.applyMiddleware({ app, path: "/graphql" });
 
-  app.listen(PORT, () => console.log(`Graphql on port ${PORT}`));
+  app.listen(PORT, () => console.log(`localhost:${PORT}/graphql`));
 };
 
 startApolloServer();

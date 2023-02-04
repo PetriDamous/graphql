@@ -1,0 +1,45 @@
+type Query {
+  orders: [Order]!
+  orderById(orderId: ID!): Order
+  ordersBySubTotal(min: Int!, max: Int!): [Order]!
+  ordersByDate(min: String!, max: String!): [Order]!
+  ordersByTotalQuantity(min: Int!, max: Int!): [Order]!
+}
+
+type Mutation {
+  addNewOrder(input: OrderInput): Order!
+  deleteOrder(orderId: ID!): Order!
+  updateOrder(input: UpdateOrderInput): Order!
+}
+
+type Order {
+  id: ID!
+  date: String!
+  subtotal: Float!
+  totalQuantity: Int!
+  items: [OrderItem]
+}
+
+type OrderItem {
+  product: Product!
+  quantity: Int!
+}
+
+input OrderInput {
+  date: String
+  subtotal: Float!
+  totalQuantity: Int!
+  productIds: [ID!]!
+  productPrices: [Float!]!
+  itemQuantities: [Int!]!
+}
+
+input UpdateOrderInput {
+  orderId: ID!
+  subtotal: Float!
+  existingProductIds: [ID!]!
+  newProdcutIds: [ID]!
+  totalQuantity: Int!
+  existingItemQuantities: [Int!]!
+  newItemQuantities: [Int]!
+}

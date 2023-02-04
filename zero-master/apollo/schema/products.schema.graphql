@@ -1,0 +1,46 @@
+type Query {
+  # Returns all products
+  allProducts: [Product]!
+  # Gets products between price range
+  productsByPrice(min: Float!, max: Float!): [Product]!
+  # Gets specific product by ID
+  productById(id: ID!): Product
+}
+
+type Mutation {
+  # Adds new product
+  addNewProduct(input: AddProductInput!): Product!
+  # Deletes product
+  deleteProduct(id: ID!): Product
+  # Updates product
+  updateProduct(input: UpdateProductInput!, id: ID!): Product!
+}
+
+type Product {
+  # Product ID
+  id: ID!
+  # Product name
+  name: String!
+  # Product price
+  price: Float!
+  # Product description
+  description: String!
+  # Url that points to products image
+  image: String
+  # List of products reviews
+  reviews: [Review]!
+}
+
+input AddProductInput {
+  name: String!
+  image: String
+  price: Float!
+  description: String
+}
+
+input UpdateProductInput {
+  name: String
+  image: String
+  price: Float
+  description: String
+}

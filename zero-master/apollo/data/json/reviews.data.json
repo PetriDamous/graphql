@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "id": "20df9908-ed20-4ae8-9c1f-927bfad3c4b6",
+      "productId": "1",
+      "rating": 5,
+      "comment": "Maybe it's not brown?"
+    },
+    {
+      "id": "d3ebe5a8-0499-47c5-a9a5-444289c49f1c",
+      "productId": "1",
+      "rating": 2,
+      "comment": "I cannot take it off!!!"
+    },
+    {
+      "id": "0533e73a-a469-4dad-aee3-42cb7da52e72",
+      "productId": "9c67bee8-3e52-48d3-9c43-02c90a7268a3",
+      "rating": 5,
+      "comment": "Man's best friend."
+    }
+  ]
+}

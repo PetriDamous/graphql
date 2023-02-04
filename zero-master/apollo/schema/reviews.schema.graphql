@@ -1,0 +1,60 @@
+type Query {
+  """
+  Gets all reviews
+  """
+  allReviews: [Review]!
+  """
+  Get review by review's ID
+  """
+  reviewById(id: ID!): Review
+  """
+  Get reviews for a specific product
+  """
+  reviewsByProductId(productId: ID!): [Review]!
+}
+
+type Mutation {
+  """
+  Adds new review to product
+  """
+  addNewReview(input: AddReviewInput): Review
+  """
+  Update existing review
+  """
+  updateReview(input: UpdateReviewInput): Review
+  """
+  Delete single review
+  """
+  deleteReview(reviewId: ID!): Review
+}
+
+type Review {
+  """
+  Review Id
+  """
+  id: ID!
+  """
+  Product id belonging to reveiw
+  """
+  productId: ID!
+  """
+  Review rating
+  """
+  rating: Float!
+  """
+  Review comment
+  """
+  comment: String
+}
+
+input AddReviewInput {
+  productId: ID!
+  rating: Float!
+  comment: String
+}
+
+input UpdateReviewInput {
+  id: ID!
+  rating: Float!
+  comment: String
+}

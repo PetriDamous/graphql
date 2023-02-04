@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "date": "2005-05-05",
+      "subtotal": 40,
+      "totalQuantity": 2,
+      "items": [{ "product": { "id": "1", "price": 20 }, "quantity": 2 }]
+    },
+    {
+      "id": "b560fc1f-244f-44ba-88fb-d2181bc9eb89",
+      "date": "2010-05-05",
+      "subtotal": 86,
+      "totalQuantity": 4,
+      "items": [
+        { "product": { "id": "1", "price": 10 }, "quantity": 2 },
+        { "product": { "id": "2", "price": 15 }, "quantity": 4 }
+      ]
+    },
+    {
+      "id": "d0c6a1c2-9753-4027-980b-c0202baad05a",
+      "date": "666-666-6666",
+      "subtotal": 2,
+      "totalQuantity": 40,
+      "items": [
+        { "product": { "id": "5", "price": 3 }, "quantity": 20 },
+        { "product": { "id": "9", "price": 4 }, "quantity": 20 },
+        { "product": { "id": "1", "price": 25 }, "quantity": 2 },
+        { "product": { "id": "2", "price": 18 }, "quantity": 2 }
+      ]
+    }
+  ]
+}

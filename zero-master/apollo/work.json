@@ -1,0 +1,18 @@
+{
+    "data": [
+      {
+        "id": "1",
+        "date": "2005-05-05",
+        "subtotal": 40,
+        "items": [
+          {
+            "product": {
+              "id": "4",
+              "price": 20
+            },
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  }
