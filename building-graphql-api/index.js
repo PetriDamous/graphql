@@ -1,4 +1,4 @@
-const { ApolloServer } = require("apollo-server");
+const { ApolloServer, ApolloError } = require("apollo-server");
 const SessionAPI = require("./datasources/sessions");
 const SpeakerAPI = require("./datasources/speakers");
 
@@ -18,6 +18,14 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   dataSources,
+  debug: false,
+  formatError: (err) => {
+    if (err.extensions.code === "INTERNAL_SERVER_ERROR") {
+      return new ApolloError("Shit got fucked up", "ERROR", {
+        token: "unique error token.",
+      });
+    }
+  },
 });
 
 server

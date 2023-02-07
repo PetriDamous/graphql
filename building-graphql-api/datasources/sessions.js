@@ -9,6 +9,21 @@ class SessionAPI extends DataSource {
 
   initialize(config) {}
 
+  addNewSession(args) {
+    const newSession = {
+      id: Math.floor(Math.random() * 1000),
+      ...args.addSession,
+    };
+
+    return newSession;
+  }
+
+  toggleFavSession(id) {
+    const session = _.filter(sessions, { id: parseInt(id) });
+    session[0].favorite = !session[0].favorite;
+    return session[0];
+  }
+
   getSessions(args) {
     return _.filter(sessions, args);
   }
@@ -19,6 +34,12 @@ class SessionAPI extends DataSource {
     // In this case we pass in the object and want to filter on id.
     // Since our id is string cuz its in .json format we must convert to number.
     const session = _.filter(sessions, { id: parseInt(id) });
+    return session[0];
+  }
+
+  toggleFavSession(id) {
+    const session = _.filter(sessions, { id: parseInt(id) });
+    session[0].favorite = !session[0].favorite;
     return session[0];
   }
 }
