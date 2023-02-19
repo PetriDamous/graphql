@@ -3,15 +3,22 @@ import { useQuery } from "@apollo/client";
 import "./style-sessions.css";
 import { Link } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
-import { GET_SESSIONS } from "./graphql";
+import { SESSIONS } from "./graphql";
 
 /* ---> Define queries, mutations and fragments here */
 
 function AllSessionList() {
   /* ---> Invoke useQuery hook here to retrieve all sessions and call SessionItem */
-  const { data, error, loading } = useQuery(GET_SESSIONS);
+  const { data, error, loading } = useQuery(SESSIONS);
 
   if (loading) return <p style={{ fontWeight: 700 }}>Loading Sessions...</p>;
+
+  if (error)
+    return (
+      <p style={{ fontWeight: 700 }}>
+        Shit got fucked up.....please try again later.
+      </p>
+    );
 
   return data?.sessions.map((session) => {
     return <SessionItem key={session.id} session={session} />;
@@ -20,11 +27,18 @@ function AllSessionList() {
 
 function SessionList({ day }) {
   /* ---> Invoke useQuery hook here to retrieve sessions per day and call SessionItem */
-  const { data, error, loading } = useQuery(GET_SESSIONS, {
+  const { data, error, loading } = useQuery(SESSIONS, {
     variables: { day },
   });
 
   if (loading) return <p style={{ fontWeight: 700 }}>Loading Sessions...</p>;
+
+  if (error)
+    return (
+      <p style={{ fontWeight: 700 }}>
+        Shit got fucked up.....please try again later.
+      </p>
+    );
 
   return data?.sessions.map((session) => {
     return <SessionItem key={session.id} session={session} />;
@@ -55,7 +69,7 @@ function SessionItem(props) {
 }
 
 export function Sessions() {
-  const [day, setDay] = useState("");
+  const [day, setDay] = useState("All");
 
   return (
     <>
