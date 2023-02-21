@@ -1,13 +1,13 @@
 import * as React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import "./style-sessions.css";
-import { TOGGLE_FAV_SESSION, SPEAKERS, SPEAKER_BY_ID } from "./graphql";
+import { FEATURED_SPEAKER, SPEAKERS, SPEAKER_BY_ID } from "./graphql";
 
 const SpeakerList = () => {
   const { data, error, loading } = useQuery(SPEAKERS);
 
-  const [toggleFavSession] = useMutation(TOGGLE_FAV_SESSION);
+  const [markSpeaker] = useMutation(FEATURED_SPEAKER);
 
   if (loading) return <p style={{ fontWeight: 700 }}>Fetching your shit....</p>;
 
@@ -27,7 +27,11 @@ const SpeakerList = () => {
       >
         <div className="panel panel-default">
           <div className="panel-heading">
-            <h3 className="panel-title">{`Speaker: ${speaker.name}`}</h3>
+            <h3 className="panel-title">
+              <Link
+                to={`/conference/speaker/${speaker.id}`}
+              >{`Speaker: ${speaker.name}`}</Link>
+            </h3>
           </div>
           <div className="panel-body">
             <h5>{`Bio: ${speaker.bio} `}</h5>
@@ -42,7 +46,12 @@ const SpeakerList = () => {
                 type="button"
                 className="btn btn-default btn-lg"
                 onClick={() => {
-                  toggleFavSession({ variables: { speakerId: speaker.id } });
+                  markSpeaker({
+                    variables: {
+                      speakerId: speaker.id,
+                      featured: !speaker.featured,
+                    },
+                  });
                 }}
               >
                 <i

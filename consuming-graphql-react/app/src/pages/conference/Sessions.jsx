@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import "./style-sessions.css";
 import { Link } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
-import { SESSIONS } from "./graphql";
+import { SESSIONS, CREATE_SESSION } from "./graphql";
+import { updateSessions } from "./helper";
 
 /* ---> Define queries, mutations and fragments here */
 
@@ -124,6 +125,14 @@ export function Sessions() {
 export function SessionForm() {
   /* ---> Call useMutation hook here to create new session and update cache */
 
+  const [createSession, { called, error }] = useMutation(CREATE_SESSION, {
+    update: updateSessions,
+  });
+
+  if (called) return <p>Session has been submited</p>;
+
+  if (error) return <p>Shit got fucked up....</p>;
+
   return (
     <div
       style={{
@@ -141,8 +150,9 @@ export function SessionForm() {
           day: "",
           level: "",
         }}
-        onSubmit={() => {
+        onSubmit={(value) => {
           /* ---> Call useMutation mutate function here to create new session */
+          createSession({ variables: { session: value } });
         }}
       >
         {() => (

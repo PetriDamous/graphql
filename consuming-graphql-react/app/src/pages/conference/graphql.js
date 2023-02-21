@@ -13,18 +13,30 @@ const SPEAKER_ATTRIBUTES = gql`
   }
 `;
 
+const SESSION_ATTRIBUTES = gql`
+  fragment SessionInfo on Session {
+    id
+    title
+    description
+    day
+    level
+    room
+    startsAt
+    speakers {
+      id
+      name
+    }
+  }
+`;
+
 // Queries
 export const SESSIONS = gql`
   query sessions($day: String) {
     sessions(day: $day) {
-      id
-      title
-      day
-      room
-      level
-      startsAt
+      ...SessionInfo
     }
   }
+  ${SESSION_ATTRIBUTES}
 `;
 
 export const SPEAKERS = gql`
@@ -47,13 +59,20 @@ export const SPEAKER_BY_ID = gql`
 `;
 
 // Mutations
-export const TOGGLE_FAV_SESSION = gql`
-  mutation toggleFavoriteSession($speakerId: ID!) {
-    toggleFavoriteSession(sessionId: $speakerId) {
-      favorites {
-        id
-        title
-      }
+export const FEATURED_SPEAKER = gql`
+  mutation markFeatured($speakerId: ID!, $featured: Boolean!) {
+    markFeatured(speakerId: $speakerId, featured: $featured) {
+      id
+      featured
     }
   }
+`;
+
+export const CREATE_SESSION = gql`
+  mutation createSession($session: SessionInput!) {
+    createSession(session: $session) {
+      ...SessionInfo
+    }
+  }
+  ${SESSION_ATTRIBUTES}
 `;
