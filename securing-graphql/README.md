@@ -19,3 +19,46 @@ Requirements:
 4. On the front-end authenticate users through the sign-in form.
 5. Allow a user to create an account.
 6. Only authenticated users can have access to the create sessions button.
+
+Game plan:
+
+- Api
+
+  - Schema
+    - Create User object/type
+    - Create Auth object/type
+    - Create two mutations
+      - SignUp
+      - SignIn
+      - Create input that takes in
+        - email
+        - password
+  - Resolvers
+    - Create signUp and signIn resolvers
+    - Remember to hash passwords before storing in database
+    - Always check to see if user is in DB before moving on to more heavy complex stuff
+    - We have methods for handling auth and DB related stuff so you don't have to write that from scratch
+    - Protect the createSessions resolver
+      - You will need to setup context with user auth first
+  - Setup context
+    - setup context in main server file
+    - We are looking at auth headers that come back on a req
+
+- App
+
+  - Wire up sign up and sign in form components
+    - Creat mutation queries
+    - bring in that useMutation hook baby
+    - We will need to bring in state to our from our authContext to update the state in our app
+  - Create authContext
+    - authContext should have the following:
+      - state to capture if a user is authenticated or not
+      - boolean value to check if user is authenticated or not
+      - Wrap the provider around the root of the app so everyone can get some love
+  - Add headers to ApolloContext
+    - make sure to check if a token is present from the sign up or sign in process
+    - Use that context to bring in token data from the mentioned processes
+  - Added bonus
+    - Hide create session button from user if they are not authenticated into the app
+
+- Test along the way keeps the bugs away
