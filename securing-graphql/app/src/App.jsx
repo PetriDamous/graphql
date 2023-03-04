@@ -10,7 +10,6 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { ApolloProvider } from "./context/ApolloProvider";
-import { AuthProvider } from "./context/AuthProvider";
 
 function AppRouter() {
   return (
@@ -45,11 +44,9 @@ function AppRouter() {
 
 function App() {
   return (
-    <AuthProvider>
-      <ApolloProvider>
-        <AppRouter />
-      </ApolloProvider>
-    </AuthProvider>
+    <ApolloProvider>
+      <AppRouter />
+    </ApolloProvider>
   );
 }
 

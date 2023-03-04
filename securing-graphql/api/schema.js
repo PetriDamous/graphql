@@ -55,37 +55,8 @@ module.exports = gql`
     userById(id: ID): User
   }
 
-  # Object that will represent user
-  type User {
-    id: String!
-    email: String!
-  }
-
-  # Input where user will enter credentials
-  input Credentials {
-    email: String!
-    password: String!
-  }
-
-  """
-  Authentication object that will
-  be sent back to the user to start the
-  JWT process
-  """
-  type AuthPayload {
-    token: String
-    user: User
-  }
-
   type Mutation {
     createSession(session: SessionInput): Session
     toggleFavoriteSession(id: ID): Session
-    """
-    Mutations for signing up and signing in.
-    Once the user hits these mutations they are offered
-    the AuthPayload object.
-    """
-    signUp(credentials: Credentials!): AuthPayload
-    signIn(credentials: Credentials!): AuthPayload
   }
 `;

@@ -1,9 +1,6 @@
 import * as React from "react";
 import { Switch, Route, Link, useRouteMatch, Redirect } from "react-router-dom";
 import { Form, Formik, Field } from "formik";
-import { useMutation, gql } from "@apollo/client";
-import { AuthContext } from "../../context/AuthProvider";
-import { useContext } from "react";
 
 function FormLayout({ children }) {
   return (
@@ -53,41 +50,8 @@ const AuthForm = ({ onSubmit, children }) => (
   </Formik>
 );
 
-// Mutation string for signing up.
-const signUpMutation = gql`
-  mutation signUpUser($email: String!, $password: String!) {
-    signUp(credentials: { email: $email, password: $password }) {
-      token
-      user {
-        id
-        email
-      }
-    }
-  }
-`;
-
 function SignUpForm() {
-  // Mutation for signing up.
-  const [signUpUser] = useMutation(signUpMutation);
-
-  // Brining in our authContext object
-  // so we can setup authentication info in our
-  // authContext state.
-  const authContext = useContext(AuthContext);
-
-  // When submit is clicked the action begins.
-  const handleSubmit = async (values) => {
-    // Run the signUpUser mutation function.
-    const {
-      data: { signUp },
-    } = await signUpUser({ variables: values });
-
-    // Once mutation is complete grab returned data with the signUp object.
-    // This object will contain the token and the user data (email and password).
-    // We then set the state for our authContext so it now has access to anything
-    // dealing with user authentication.
-    authContext.setAuthInfo({ token: signUp.token, userData: signUp.user });
-  };
+  const handleSubmit = (values) => {};
 
   return (
     <FormLayout>
@@ -102,34 +66,8 @@ function SignUpForm() {
   );
 }
 
-// Mutation for Signing in.
-const signInMutation = gql`
-  mutation signInUser($email: String!, $password: String!) {
-    signIn(credentials: { email: $email, password: $password }) {
-      token
-      user {
-        id
-        email
-      }
-    }
-  }
-`;
-
 function SignInForm() {
-  // Using mutation to get the mutation function.
-  const [signInUser] = useMutation(signInMutation);
-
-  // Bringing in our authContext object.
-  const authContext = useContext(AuthContext);
-
-  // Where the fun starts.
-  const handleSubmit = async (values) => {
-    // Basically the same thing we did for signUp
-    const {
-      data: { signIn },
-    } = await signInUser({ variables: values });
-    authContext.setAuthInfo({ token: signIn.token, userData: signIn.user });
-  };
+  const handleSubmit = (values) => {};
 
   return (
     <FormLayout>
