@@ -32,7 +32,16 @@ const SESSION_ATTRIBUTES = gql`
 // Queries
 export const SESSIONS = gql`
   query sessions($day: String) {
-    sessions(day: $day) {
+    # sessions(day: $day) {
+    #   ...SessionInfo
+    # }
+    intro: sessions(day: $day, level: "Introductory and overview") {
+      ...SessionInfo
+    }
+    intermediate: sessions(day: $day, level: "Intermediate") {
+      ...SessionInfo
+    }
+    advanced: sessions(day: $day, level: "Advanced") {
       ...SessionInfo
     }
   }

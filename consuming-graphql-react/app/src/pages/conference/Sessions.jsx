@@ -21,9 +21,13 @@ function AllSessionList() {
       </p>
     );
 
-  return data?.sessions.map((session) => {
-    return <SessionItem key={session.id} session={session} />;
-  });
+  console.log(data);
+
+  return [<div>dog</div>, <div>cat</div>, <div>monkey</div>];
+
+  // return data?.sessions.map((session) => {
+  //   return <SessionItem key={session.id} session={session} />;
+  // });
 }
 
 function SessionList({ day }) {
@@ -31,6 +35,8 @@ function SessionList({ day }) {
   const { data, error, loading } = useQuery(SESSIONS, {
     variables: { day },
   });
+
+  console.log(data);
 
   if (loading) return <p style={{ fontWeight: 700 }}>Loading Sessions...</p>;
 
@@ -40,6 +46,8 @@ function SessionList({ day }) {
         Shit got fucked up.....please try again later.
       </p>
     );
+
+  console.log(data);
 
   return data?.sessions.map((session) => {
     return <SessionItem key={session.id} session={session} />;
@@ -62,6 +70,7 @@ function SessionItem(props) {
           <h5>{`Day: ${session.day}`}</h5>
           <h5>{`Room Number: ${session.room}`}</h5>
           <h5>{`Starts at: ${session.startsAt}`}</h5>
+          <section>{session.description}</section>
         </div>
         <div className="panel-footer"></div>
       </div>
