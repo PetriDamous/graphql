@@ -69,6 +69,16 @@
       "email": "spartan101@yahoo.com",
       "password": "$2a$10$0J2kawgyaPHogW4rKxngk.PT/Tw/Jslm3b4enY.K5YkKWVNun6Y16",
       "id": "56f291ab-7c25-45c6-ac34-fabfea5752b6"
+    },
+    {
+      "email": "puppypower@yahoo.com",
+      "password": "$2a$10$/whUwXBeZ8CjygzaxHGmROSM4YoGq86EkTJ1a6G9wcNIdlJj2KbRK",
+      "id": "5a8d3c88-c401-4688-b3ec-b015b4b70ee3"
+    },
+    {
+      "email": "puppypower@gmail.com",
+      "password": "$2a$10$KS6DGsQWygeG56tFym3zHOLG7WFcJs1UrPVuyTVd61n/WIuLMFsTy",
+      "id": "0b16ea83-baa5-477c-9f28-2249422b2ad4"
     }
   ]
 }
