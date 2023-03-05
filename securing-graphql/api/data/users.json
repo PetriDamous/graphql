@@ -39,6 +39,36 @@
       "email": "test_user123@gmail.com",
       "hash": "$2a$10$Zm0cM/KB8fP2xWZPWPmS1.n3M7hvsrcSMdwZgIcT3cTmeDCZk1Rta",
       "id": "52b29b88-5fd5-42bf-a4d5-34a229a609da"
+    },
+    {
+      "email": "dog@dog.com",
+      "hashedPassword": "$2a$10$sQ2F9wLST6mr.1VhjRumsOdreEQVTHzKTUMyuHvcHD1kGgh6bf5KS",
+      "id": "15bf0ee0-1901-458e-ab57-52fd5c42c945"
+    },
+    {
+      "email": "catman@yahoo.com",
+      "hashedPassword": "$2a$10$d5WC2frQrj8tJHT2WyTxZe3XDCdntBV6IlHRSzjX25p5.f2BQSxsO",
+      "id": "84ad554c-941d-41e3-abbc-6c88a2dbd8c9"
+    },
+    {
+      "email": "fish@yahoo.com",
+      "password": "$2a$10$6M58Ok5MpIQ9jGw9gZ66JOebr4CBjXX/6jXRRtO/feSq9T77tyQl.",
+      "id": "bf2959ff-6e42-4c93-9cb9-be7698b778e2"
+    },
+    {
+      "email": "doggiestyle@yahoo.com",
+      "password": "$2a$10$4LFH6.kqRi8VuR8PgpogZ..HbH1Oy1Czw3C6CQoQ4ly6R5MXi2TWO",
+      "id": "c828070b-e879-4b62-85c0-431f35dcae42"
+    },
+    {
+      "email": "methodtothemaddness@yahoo.com",
+      "password": "$2a$10$zZlzbdP2z0wtnMfXufJbdeX4GGw9pFCzz9JriOT.QWd5yhcE/MmQm",
+      "id": "8c313922-257d-4f2b-b99e-667f6d0df402"
+    },
+    {
+      "email": "spartan101@yahoo.com",
+      "password": "$2a$10$0J2kawgyaPHogW4rKxngk.PT/Tw/Jslm3b4enY.K5YkKWVNun6Y16",
+      "id": "56f291ab-7c25-45c6-ac34-fabfea5752b6"
     }
   ]
 }

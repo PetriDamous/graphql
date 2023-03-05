@@ -43,6 +43,8 @@ Game plan:
   - Setup context
     - setup context in main server file
     - We are looking at auth headers that come back on a req
+  - Added bonus for fun.
+    - protect a resolver that brings back user info
 
 - App
 

@@ -55,8 +55,25 @@ module.exports = gql`
     userById(id: ID): User
   }
 
+  type User {
+    id: ID!
+    email: String!
+  }
+
+  type AuthToken {
+    token: String
+    user: User
+  }
+
+  input AuthInput {
+    email: String!
+    password: String!
+  }
+
   type Mutation {
     createSession(session: SessionInput): Session
     toggleFavoriteSession(id: ID): Session
+    signUp(input: AuthInput): AuthToken
+    signIn(input: AuthInput): AuthToken
   }
 `;
