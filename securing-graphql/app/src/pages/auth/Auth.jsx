@@ -1,6 +1,9 @@
 import * as React from "react";
 import { Switch, Route, Link, useRouteMatch, Redirect } from "react-router-dom";
 import { Form, Formik, Field } from "formik";
+import { USER_SIGN_IN, USER_SIGN_UP } from "./graphql";
+import { useMutation } from "@apollo/client";
+import { AuthContext } from "../../context/AuthProvider";
 
 function FormLayout({ children }) {
   return (
@@ -51,7 +54,15 @@ const AuthForm = ({ onSubmit, children }) => (
 );
 
 function SignUpForm() {
-  const handleSubmit = (values) => {};
+  const [signUp] = useMutation(USER_SIGN_UP);
+
+  const { setAuth } = React.useContext(AuthContext);
+
+  const handleSubmit = async ({ email, password }) => {
+    const { data } = await signUp({ variables: { email, password } });
+
+    setAuth({ token: data.signUp.token, userObj: data.signUp.user });
+  };
 
   return (
     <FormLayout>
@@ -67,7 +78,15 @@ function SignUpForm() {
 }
 
 function SignInForm() {
-  const handleSubmit = (values) => {};
+  const [signIn] = useMutation(USER_SIGN_IN);
+
+  const { setAuth } = React.useContext(AuthContext);
+
+  const handleSubmit = async ({ email, password }) => {
+    const { data } = await signIn({ variables: { email, password } });
+
+    setAuth({ token: data.signIn.token, userObj: data.signIn.user });
+  };
 
   return (
     <FormLayout>

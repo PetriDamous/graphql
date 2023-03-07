@@ -31,7 +31,7 @@ module.exports = {
       email: newUser.email,
     });
 
-    return { token, user: { ...newUser } };
+    return { token, user: { id: newUser.id, email: newUser.email } };
   },
   signIn: async (parent, { input }, { dataSources }, info) => {
     const { userDataSource } = dataSources;
@@ -57,7 +57,7 @@ module.exports = {
 
     return {
       token,
-      user: { ...user },
+      user: { id: user.id, email: user.email },
     };
   },
   toggleFavoriteSession: async (parent, args, { dataSources }, info) => {

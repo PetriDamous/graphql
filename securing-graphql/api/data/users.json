@@ -79,6 +79,31 @@
       "email": "puppypower@gmail.com",
       "password": "$2a$10$KS6DGsQWygeG56tFym3zHOLG7WFcJs1UrPVuyTVd61n/WIuLMFsTy",
       "id": "0b16ea83-baa5-477c-9f28-2249422b2ad4"
+    },
+    {
+      "email": "snoop_dog@yahoo.com",
+      "password": "$2a$10$JgYWOudRTqqSsxHl0gFxceDy2.26uJbjeozr3OC7vl/QCV6neQUJW",
+      "id": "83c5971f-c5c0-456b-b6e8-9d07b4e6f0c0"
+    },
+    {
+      "email": "d-dog@metalgear.gov",
+      "password": "$2a$10$gisbxwR60bIAjE5z7Cy04.bI7V7w7GtTutbRKwXqDlRSm/gXZNvMG",
+      "id": "f2633830-d581-4473-8fcb-fab52cf746f4"
+    },
+    {
+      "email": "man@woman.com",
+      "password": "$2a$10$Q7lJmwAQe0UB5J.71bpVs.17NumkoY53NbCs.89zh6/EXNrngzf9e",
+      "id": "16811920-e567-4cee-9df9-2d6529c1851e"
+    },
+    {
+      "email": "cat@woman.com",
+      "password": "$2a$10$GEqFl3ZA01.6W1j9IDgl5.PcOyfeHJ5DRgdyf8X4xS2oZbTVYAZOS",
+      "id": "29a1ab60-e932-45dd-a551-34280cb3fb07"
+    },
+    {
+      "email": "man@dog.com",
+      "password": "$2a$10$yRFhjo8i0.oNF/tdTICRZummK2yzH./Nu7Tm026oPN5YZyrdCpUYO",
+      "id": "37f2777f-5ada-48cc-a003-bcdf51511929"
     }
   ]
 }
