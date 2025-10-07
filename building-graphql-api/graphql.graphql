@@ -1,0 +1,32 @@
+query {
+  sessionById(id: "1800") {
+    title
+    room
+    track
+    id
+  }
+}
+
+mutation {
+  toggleFavSession(id: "1234") {
+    title
+    favorite
+  }
+}
+
+input SessionsInput {
+  id: ID
+  title: String
+  description: String
+  startsAt: String
+  endsAt: String
+  room: String
+  day: String
+  format: String
+  track: String
+  level: String
+}
+
+type Mutation {
+  addNewSession(addSession: AddSessionInput): Session
+}

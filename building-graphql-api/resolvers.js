@@ -27,7 +27,9 @@ module.exports = {
  *
  * 3. Modulize Mutations
  *
- *4. Write error handling with try catch block for resolver functions
- *Use the ApolloError contructor. Make sure to document and add to one note.
- *
+ * 4. Write error handling with try catch block for resolver functions
+ * Use the ApolloError contructor. Make sure to document and add to one note.
+ * 
+ * 5. Add room enums from the enum lesson. Use a resolver to translate the capital enum
+ *    values to 
  */
